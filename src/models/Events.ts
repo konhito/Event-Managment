@@ -13,14 +13,14 @@ const EventSchma = new mongoose.Schema(
       maxlength: [1000, "Description cannot be more than 1000 characters"],
     },
     img: {
-      type: String || "",
+      type: String || null,
     },
     EventDate: {
       type: Date,
     },
   },
   {
-    timestamps: true, // for created nad updated at
+    timestamps: true, // for created and updated at
   }
 );
 
