@@ -1,9 +1,11 @@
 import Dashboard from "@/components/Dashboard";
 import Navbar from "@/components/Navbar";
+import { customHeight } from "@/components/Dashboard";
 export default function Home() {
+  const s = customHeight();
+  console.log(s);
   return (
-    <div>
-      <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <div className={`h-[${s}px] min-h-screen bg-slate-950`}>
       <Navbar />
       <Dashboard />
     </div>

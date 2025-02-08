@@ -4,7 +4,7 @@ const events = [
     name: "Tech Conference",
     category: "Business",
     date: "2025-03-15",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tech_conference_logo.svg/1200px-Tech_conference_logo.svg.png",
+    img: "https://img.bizbash.com/files/base/bizbash/bzb/image/2023/10/image003.6532f37567e5b.png?auto=format%2Ccompress&fit=max&q=70&w=1200",
   },
   {
     id: "2",
@@ -29,6 +29,13 @@ const events = [
   },
   {
     id: "5",
+    name: "Food Carnival",
+    category: "Food & Drinks",
+    date: "2025-07-12",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Food_Festival.jpg/1200px-Food_Festival.jpg",
+  },
+  {
+    id: "6",
     name: "Food Carnival",
     category: "Food & Drinks",
     date: "2025-07-12",
