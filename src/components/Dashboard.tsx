@@ -1,5 +1,6 @@
 import React from "react";
 import events from "@/context/data";
+import { getEvents } from "@/context/data";
 
 interface Event {
   id: string;
@@ -10,6 +11,8 @@ interface Event {
 }
 
 const Dashboard: React.FC = () => {
+  // const test = getEvents("test1", "test1", "test1", "test1");
+  // console.log("checling", test);
   return (
     <div className="text-white flex flex-col items-center min-h-screen max-w-screen p-6">
       <h1 className="text-6xl font-bold uppercase tracking-wide bg-gradient-to-r from-purple-700 via-blue-300 to-orange-400 text-transparent bg-clip-text animate-gradient mb-8">
@@ -36,10 +39,5 @@ const Dashboard: React.FC = () => {
     </div>
   );
 };
-
-export function customHeight() {
-  const s = events.length;
-  return s === 6 ? 1280 : undefined;
-}
 
 export default Dashboard;

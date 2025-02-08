@@ -1,17 +1,29 @@
 import dbConnect from "@/lib/dbConnect";
 import { NextRequest, NextResponse } from "next/server";
 import Event from "@/models/Events";
-export function GET() {
-  dbConnect();
+
+export async function GET() {
+  await dbConnect();
+  try {
+    const events = await Event.find();
+    return NextResponse.json({
+      msg: events,
+    });
+  } catch (error) {
+    console.log("Error while fetching the data", error);
+    return NextResponse.json({
+      msg: "Error while fetching the data",
+    });
+  }
   return NextResponse.json({
     msg: "db connection check",
   });
 }
 
 export async function POST(req: NextRequest) {
-  dbConnect();
+  await dbConnect();
   try {
-    const { title, description, img, date } = await req.json();
+    const { title, category, img, date } = await req.json();
 
     if (!title) {
       return NextResponse.json({
@@ -19,11 +31,11 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const newEvent = new Event({ title, description, date, img });
+    const newEvent = new Event({ title, category, date, img });
     await newEvent.save();
 
     return NextResponse.json({
-      msg: `${title} ${description}`,
+      msg: `${title} ${category}`,
     });
   } catch (error) {
     console.log("Error while post", error);

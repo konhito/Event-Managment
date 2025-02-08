@@ -1,3 +1,5 @@
+import axios from "axios";
+import backendUrl from "./backendUrl";
 const events = [
   {
     id: "1",
@@ -42,5 +44,24 @@ const events = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Food_Festival.jpg/1200px-Food_Festival.jpg",
   },
 ];
+
+export async function getEvents(
+  title: string,
+  category: string,
+  img: string,
+  date: string
+) {
+  axios
+    .post(`${backendUrl}/api/events`, {
+      title,
+      category,
+      img,
+      date,
+    })
+    .then((e) => {
+      console.log(e.data.events);
+    });
+  return events;
+}
 
 export default events;
