@@ -11,18 +11,27 @@ interface Event {
 
 const Dashboard: React.FC = () => {
   return (
-    <div>
-      <h1>Event Dashboard</h1>
-      <ul>
+    <div className="text-white flex flex-col items-center h-screen max-w-screen p-6">
+      <h1 className="text-6xl font-bold uppercase tracking-wide bg-gradient-to-r from-purple-700 via-blue-300 to-orange-400 text-transparent bg-clip-text animate-gradient mb-8">
+        Event Dashboard
+      </h1>
+      <div className="grid grid-cols-3 gap-10">
         {events.map((item: Event) => (
-          <li key={item.id}>
-            <h2>{item.name}</h2>
-            <p>{item.category}</p>
-            <p>{item.date}</p>
-            <img src={item.img} alt={item.name} />
-          </li>
+          <div key={item.id} className="bg-gray-800  p-6 rounded-lg  w-48">
+            <h2 className="text-center font-semibold text-sm mb-2">
+              {item.name}
+            </h2>
+            <img
+              src={item.img}
+              alt={item.name}
+              className="w-full h-28 object-cover rounded-md"
+            />
+            <div className="bg-gray-500 rounded-full flex items-center justify-center">
+              <div className="px-5 flex flex-wrap">{item.category}</div>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
